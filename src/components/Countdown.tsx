@@ -4,7 +4,7 @@ import { useState } from 'react'
 export function Countdown() {
 
     // declara a variavel time
-    const [time, setTime] = useState(25 * 60)
+    const [time, setTime] = useState(20 * 60)
     //declara a variavel active
     const [active, setActive] = useState(false)
 
@@ -24,13 +24,13 @@ export function Countdown() {
         <div>
             <div className={styles.countdown}>
                 <div>
-                    <span> 2 </span>
-                    <span> 5 </span>
+                    <span> {minuteLeft} </span>
+                    <span> {minuteRight} </span>
                 </div>
                 <span> : </span>
                 <div>
-                    <span> 0 </span>
-                    <span> 0 </span>
+                    <span> {secondLeft} </span>
+                    <span> {secondRight} </span>
                 </div>
             </div>
             <button onClick={startCountdown} type="button" className={styles.countdownButton}>
