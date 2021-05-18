@@ -6,7 +6,10 @@ export function Profile() {
             <img src="https://github.com/fariafmarcelo.png"></img>
             <div>
                 <strong> Marcelo Faria</strong>
-                <p> Level 1 </p>
+                <p>
+                    <img src="icons/level.svg"/>
+                    Level 1
+                </p>
             </div>
         </div>
     )

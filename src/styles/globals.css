@@ -15,4 +15,7 @@ a {
 :root {
   --green: green;
   --gray-line: gray;
+  --blue: blue;
+  --blue-dark: #00008B;
+  --white: white;
 }
