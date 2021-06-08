@@ -1,14 +1,11 @@
 import '../styles/globals.css'
-import { ChallengeBoxContext } from '../contexts/ChallangeBoxContext'
-import { useState } from 'react'
+import { ChallangesProvider } from '../contexts/ChallangeContext'
 
 function MyApp({ Component, pageProps }) {
-
-  let[level, setLevel] = useState(1)
   return (
-      <ChallengeBoxContext.Provider value={level}>
+      <ChallangesProvider>
         <Component {...pageProps} />
-      </ChallengeBoxContext.Provider>
+      </ChallangesProvider>
   )
 }
 

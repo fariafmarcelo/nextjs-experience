@@ -1,10 +1,12 @@
 import styles from '../styles/components/Countdown.module.css'
-import {useEffect, useState} from 'react'
-
+import {useContext, useEffect, useState} from 'react'
+import {ChallengesContext} from '../contexts/ChallangeContext'
 
 let countdownTimeout: NodeJS.Timeout
 
 export function Countdown(){
+
+    const {startNewChallenge} = useContext(ChallengesContext)
 
     //declarar variável time -> tempo 
     const [time, setTime] = useState(0.1 * 60) // converte para segundos
@@ -15,17 +17,17 @@ export function Countdown(){
     const minutes = Math.floor(time / 60) // minuto arredondado
     // declarar variável que guarda os segundos
     const seconds = time % 60 // resto da divisão por 60
-    
+
     // 13 minuteLeft 1 minuteRight 3
     // 3  03 minuteLeft 0 minuteRight 3
-    const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')  
+    const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
 
     // acabou de terminar
     const [hasFinished, setHasFinished] = useState(false)
 
     function startCountdown(){
-            setIsActive(true)
+        setIsActive(true)
     }
 
     // react -> useEffect será executado toda vez a variável active ou time forem alteradas
@@ -38,8 +40,9 @@ export function Countdown(){
         else if (isActive && time == 0){
             setHasFinished(true)
             setIsActive(false)
+            startNewChallenge()
         }
-    }, [isActive, time]) // 
+    }, [isActive, time]) //
 
     function resetCountdown(){
         setTime(25 * 60)
